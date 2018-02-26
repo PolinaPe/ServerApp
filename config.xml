@@ -31,7 +31,7 @@ xmlns:gap="http://phonegap.com/ns/1.0">
 <allow-intent href="geo:*" />
 <allow-intent href="sms:*" />
 <gap:plugin name="cordova-plugin-sms" source="npm" />
-	
+<plugin name="cordova-plugin-whitelist" spec="1.1.0" />
 
 
 
