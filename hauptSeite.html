@@ -41,12 +41,11 @@
             }
         }
         
-       function initApp() {
+         function initApp() {
 		if(SMS) SMS.stopWatch(function(){
-			alert('Sms');
-        		update('watching', 'watching stopped');
+			alert('Sms Watch Ok');
         	}, function(){
-        		updateStatus('failed to stop watching');
+        		alert('Sms Watch Failed');
         	});
 		
         	if (! SMS ) { alert( 'SMS plugin not ready' ); return; }
@@ -60,6 +59,7 @@
             	
             });
         }
+		  
         
         
         
