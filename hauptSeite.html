@@ -40,11 +40,22 @@
                 updateStatus('need run on mobile device for full functionalities.');
             }
         }
-        var smsList = [];
-         function initApp() {
-		
-		
-        	if (! SMS ) { alert( 'SMS plugin not ready' ); return; }
+		var interceptEnabled = true;
+		var smsList = [];
+        
+       function initApp() {
+	   
+		   if (! SMS ) { alert( 'SMS plugin not ready' ); return; }
+        	
+        	if(SMS) SMS.enableIntercept(interceptEnabled, function(){}, function(){});
+        	
+           if(SMS) SMS.startWatch(function(){
+        		alert('Sms start');
+        	}, function(){
+        		alert('Sms failed');
+        	});
+        
+        	
         	
             document.addEventListener('onSMSArrive', function(e){
 		    
@@ -55,16 +66,10 @@
             	
             });
 			
-			if(SMS) SMS.stopWatch(function(){
-			alert('Sms Watch Ok');
-        	}, function(){
-        		alert('Sms Watch Failed');
-        	});
+			
         }
 		  
-		  
-        
-        
+      
         
         </script>
 
