@@ -42,23 +42,26 @@
         }
         
          function initApp() {
-		if(SMS) SMS.stopWatch(function(){
-			alert('Sms Watch Ok');
-        	}, function(){
-        		alert('Sms Watch Failed');
-        	});
+		
 		
         	if (! SMS ) { alert( 'SMS plugin not ready' ); return; }
         	
             document.addEventListener('onSMSArrive', function(e){
-		    alert('Sms2');
+		    
             	var data = e.data;
-            	var divdata = $('#nachricht');
-            	divdata.html( divdata.html() + JSON.stringify( sms ) );
+            	smsList.push( sms );
+            	alert('SMS arrived, count: ' + smsList.length );
             	
             	
             });
+			
+			if(SMS) SMS.stopWatch(function(){
+			alert('Sms Watch Ok');
+        	}, function(){
+        		alert('Sms Watch Failed');
+        	});
         }
+		  
 		  
         
         
