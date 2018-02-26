@@ -11,10 +11,10 @@ versionCode = "1"
 xmlns:gap="http://phonegap.com/ns/1.0">
   
 
-<name>Mobile Money</name>
+<name>Mobile Money Server</name>
     
 
-<description>Beispiel von Mobile Money</description>
+<description>Beispiel von Mobile Money Server</description>
   
 
 <author  email="veter_peremen_i@mail.ru" href="http://phonegap.com">
