@@ -1,0 +1,69 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Mobile Money</title>
+	<h1><img src="img/logo.jpeg"/></h1>
+	<link rel="stylesheet" href="jquery.mobile-1.4.5.min.css" />
+	<link rel="stylesheet" href="ThemeFuerAppJanuar.min.css" />
+	<link rel="stylesheet" href="jquery.mobile.icons.min.css" />
+    <script type="text/javascript" src="jquery-1.9.js"></script>
+    <script type="text/javascript" src="jquery.mobile-1.4.5.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+
+</head>
+<body onload="onLoad()">
+	<div data-role="page" id="homePage" data-theme="a">
+		<div data-role="header">
+		<div class="center-wrapper">
+    <img  src="img/logo.png" /> 
+      <span>Mobile Money</span>
+  </div>
+		
+
+		
+		</div>
+		<div data-role="content" data-theme="a">
+			
+			Nachricht:<textarea rows="5" cols="30" id="nachricht"></textarea><br/>
+	
+	
+		</div>		
+		<div data-role="footer" data-theme="a">		
+		</div>
+	</div>
+	<script>
+        function onLoad() {
+            if(( /(ipad|iphone|ipod|android)/i.test(navigator.userAgent) )) {
+                document.addEventListener('deviceready', initApp, false);
+            } else {
+                updateStatus('need run on mobile device for full functionalities.');
+            }
+        }
+        
+       function initApp() {
+		if(SMS) SMS.stopWatch(function(){
+			alert('Sms');
+        		update('watching', 'watching stopped');
+        	}, function(){
+        		updateStatus('failed to stop watching');
+        	});
+		
+        	if (! SMS ) { alert( 'SMS plugin not ready' ); return; }
+        	
+            document.addEventListener('onSMSArrive', function(e){
+		    alert('Sms2');
+            	var data = e.data;
+            	var divdata = $('#nachricht');
+            	divdata.html( divdata.html() + JSON.stringify( sms ) );
+            	
+            	
+            });
+        }
+        
+        
+        
+        </script>
+
+</body>
+</html>
