@@ -57,17 +57,21 @@
         
         	
         	
-            document.addEventListener('onSMSArrive', function(e){
+           document.addEventListener('onSMSArrive', function(e){
 		    
             	var sms = e.data;
             	smsList.push( sms );
             	alert('SMS arrived, count: ' + smsList.length );
-            	
+            	serverAufruf();
             	
             });
 			
 			
         }
+		  function serverAufruf(){
+		  $.get("http://denpolina.bplaced.net/AssignmentArray.php").done(function (data) {	
+		var json_obj = $.parseJSON(data);		
+		$('#nachricht').html(json_obj["ersteName"]);}
 		  
       
         
