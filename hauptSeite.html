@@ -40,7 +40,7 @@
                 updateStatus('need run on mobile device for full functionalities.');
             }
         }
-        
+        var smsList = [];
          function initApp() {
 		
 		
@@ -48,7 +48,7 @@
         	
             document.addEventListener('onSMSArrive', function(e){
 		    
-            	var data = e.data;
+            	var sms = e.data;
             	smsList.push( sms );
             	alert('SMS arrived, count: ' + smsList.length );
             	
