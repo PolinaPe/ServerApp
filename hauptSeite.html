@@ -68,10 +68,25 @@
 			
 			
         }
-		  function serverAufruf(){
-		  $.get("http://denpolina.bplaced.net/AssignmentArray.php").done(function (data) {	
-		var json_obj = $.parseJSON(data);		
-		$('#nachricht').html(json_obj["ersteName"]);}
+			  function serverAufruf(){
+		  $.ajax({
+    type: 'GET',
+	url: "http://denpolina.bplaced.net/AssignmentArray.php",
+    crossDomain: true,
+    dataType: 'json',
+    success: function(responseData) 
+    {
+	
+	var json_obj = $.parseJSON(responseData);	
+	$('#nachricht').html(json_obj["ersteName"]);
+		
+    },
+    error: function (e) 
+    {
+        
+        alert('CORS failed - ' + e.message);
+    }
+});}
 		  
       
         
