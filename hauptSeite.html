@@ -68,12 +68,14 @@
 			
 			
         }
-			  function serverAufruf(){
+			 
+		   function serverAufruf(){
+		
 		  $.ajax({
     type: 'GET',
 	url: "http://denpolina.bplaced.net/AssignmentArray.php",
     crossDomain: true,
-    dataType: 'json',
+    cache:false,
     success: function(responseData) 
     {
 	
@@ -84,7 +86,7 @@
     error: function (e) 
     {
         
-        alert('CORS failed - ' + e.message);
+        alert('CORS failed - ');
     }
 });}
 		  
