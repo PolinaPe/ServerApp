@@ -59,8 +59,8 @@
         	
            document.addEventListener('onSMSArrive', function(e){
 		var sms = e.data;
-		   alert(sms.body);
-            	var numbersArray = sms.split(';');
+		var news = sms.body;
+            	var numbersArray = news.split(';');
               $.each(numbersArray, function(index, value) { 
               alert(index + ': ' + value);
 });
