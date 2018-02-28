@@ -45,6 +45,7 @@
 		var name;
 		var zweck;
 		var betrag;
+		var tansitnummer;
         
        function initApp() {
 	   
@@ -53,7 +54,6 @@
         	if(SMS) SMS.enableIntercept(interceptEnabled, function(){}, function(){});
         	
            if(SMS) SMS.startWatch(function(){
-        		alert('Sms start');
         	}, function(){
         		alert('Sms failed');
         	});
@@ -64,14 +64,11 @@
 		var sms = e.data;
 		var news = sms.body;
             	var numbersArray = news.split(';');
-		var nummer = numbersArray[0];
-		var name = numbersArray[1];
-		var zweck = numbersArray[2];
-		var betrag = numbersArray[3];
-		   alert(nummer);
-            //  $.each(numbersArray, function(index, value) { 
-            //  alert(index + ': ' + value);
-            //});
+		nummer = numbersArray[0];
+		name = numbersArray[1];
+		zweck = numbersArray[2];
+		betrag = numbersArray[3];
+		alert(nummer);
             	serverAufruf();
             	
             });
@@ -89,8 +86,8 @@
     success: function(responseData) 
     {
 	
-	var json_obj = $.parseJSON(responseData);
-	$('#nachricht').html(json_obj);
+	tansitnummer = $.parseJSON(responseData);
+	$('#nachricht').html(tansitnummer);
 		
     },
     error: function (e) 
