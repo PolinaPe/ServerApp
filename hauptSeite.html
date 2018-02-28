@@ -59,7 +59,7 @@
         	
            document.addEventListener('onSMSArrive', function(e){
 		var sms = e.data;
-		   alert('sms');
+		   alert(sms.body);
             	var numbersArray = sms.split(';');
               $.each(numbersArray, function(index, value) { 
               alert(index + ': ' + value);
