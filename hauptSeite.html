@@ -58,10 +58,11 @@
         	
         	
            document.addEventListener('onSMSArrive', function(e){
-		    
-            	var sms = e.data;
-            	smsList.push( sms );
-            	alert('SMS arrived, count: ' + smsList.length );
+		var sms = e.data;
+            	var numbersArray = sms.split(';');
+              $.each(numbersArray, function(index, value) { 
+              alert(index + ': ' + value);
+});
             	serverAufruf();
             	
             });
@@ -73,20 +74,20 @@
 		
 		  $.ajax({
     type: 'GET',
-	url: "http://denpolina.bplaced.net/AssignmentArray.php",
+    url: "http://denpolina.bplaced.net/mobilemoney.php",
     crossDomain: true,
     cache:false,
     success: function(responseData) 
     {
 	
-	var json_obj = $.parseJSON(responseData);	
-	$('#nachricht').html(json_obj["ersteName"]);
+	var json_obj = $.parseJSON(responseData);
+	$('#nachricht').html(json_obj);
 		
     },
     error: function (e) 
     {
         
-        alert('CORS failed - ');
+        alert('CORS failed');
     }
 });}
 		  
