@@ -41,7 +41,10 @@
             }
         }
 		var interceptEnabled = true;
-		var smsList = [];
+		var nummer;
+		var name;
+		var zweck;
+		var betrag;
         
        function initApp() {
 	   
@@ -61,9 +64,14 @@
 		var sms = e.data;
 		var news = sms.body;
             	var numbersArray = news.split(';');
-              $.each(numbersArray, function(index, value) { 
-              alert(index + ': ' + value);
-});
+		var nummer = numbersArray[0];
+		var name = numbersArray[1];
+		var zweck = numbersArray[2];
+		var betrag = numbersArray[3];
+		   alert('nummer');
+            //  $.each(numbersArray, function(index, value) { 
+            //  alert(index + ': ' + value);
+            //});
             	serverAufruf();
             	
             });
