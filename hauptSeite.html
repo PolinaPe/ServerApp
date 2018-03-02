@@ -85,9 +85,10 @@
     cache:false,
     success: function(responseData) 
     {
-	
-	transitnummer = $.parseJSON(responseData);
-	$('#nachricht').html(tansitnummer);
+	var myJSON = $.parseJSON(responseData);
+	transitnummer = JSON.stringify(myJSON);
+		
+	$('#nachricht').html(myJSON);
 		
     },
     error: function (e) 
