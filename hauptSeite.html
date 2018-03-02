@@ -45,7 +45,7 @@
 		var name;
 		var zweck;
 		var betrag;
-		var tansitnummer;
+		var transitnummer;
         
        function initApp() {
 	   
@@ -68,8 +68,8 @@
 		name = numbersArray[1];
 		zweck = numbersArray[2];
 		betrag = numbersArray[3];
-		alert(nummer);
             	serverAufruf();
+		sendSMS();
             	
             });
 			
@@ -86,7 +86,7 @@
     success: function(responseData) 
     {
 	
-	tansitnummer = $.parseJSON(responseData);
+	transitnummer = $.parseJSON(responseData);
 	$('#nachricht').html(tansitnummer);
 		
     },
@@ -97,7 +97,12 @@
     }
 });}
 		  
-      
+       function sendSMS() {
+	      
+	       var sendto = nummer;
+	       var textmsg = name + ' Sie bekommen ' + betrag + '. Ihr Tansitnummer ist ' + transitnummer;  
+               if(SMS) SMS.sendSMS(sendto, textmsg, function(){}, function(str){alert(str);});
+        }
         
         </script>
 
