@@ -86,7 +86,8 @@
     success: function(responseData) 
     {
 	var myJSON = $.parseJSON(responseData);
-	transitnummer = JSON.stringify(myJSON);
+	var num = JSON.stringify(myJSON);
+	transitnummer = num + " ";
 		
 	$('#nachricht').html(myJSON);
 		
