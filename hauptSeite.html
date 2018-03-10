@@ -90,6 +90,7 @@
 	data: 'telefonnummer=' + adress,
     crossDomain: true,
     cache:false,
+    timeout: 5000
     success: function(responseData) 
     {
 	var myJSON = $.parseJSON(responseData);
