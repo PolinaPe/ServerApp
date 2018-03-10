@@ -136,8 +136,8 @@
 	var myJSON = $.parseJSON(responseData);
 
     transitnummer = myJSON.zahl;
-		
-	//$('#nachricht').html(transitnummer);
+	alrt(myJSON.zahl);
+   $('#nachricht').html(transitnummer);
 		
     },
     error: function (e) 
