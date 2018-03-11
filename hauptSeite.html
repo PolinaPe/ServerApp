@@ -85,11 +85,10 @@
     cache:false,
     success: function(responseData) 
     {
-	    var myJSON = $.parseJSON(responseData);
-
-    transitnummer = myJSON.zahl + " ";
-	alert(myJSON.zahl);
-   $('#nachricht').html(transitnummer);
+     $('#nachricht').html(responseData);
+	    
+	alert(responseData);
+   
 	
 		
     },
