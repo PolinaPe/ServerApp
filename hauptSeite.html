@@ -79,15 +79,19 @@
 		   function serverAufruf(){
 		
 		  $.ajax({
-    type: 'GET',
-    url: "http://denpolina.bplaced.net/zufahlgenerator.php",
+    type: 'POST',
+    url: "http://www.simkhaa.com/polinawilke.php",
 		
     crossDomain: true,
     cache:false,
+	data: "my_request_is=foo",
+    dataType: 'json',
     success: function(responseData) 
     {
-	    transitnummer = responseData;
-     $('#nachricht').html(responseData);
+	    var jsonObj=JSON.stringify(responseData);
+	
+	    transitnummer = jsonObj;
+     $('#nachricht').html(jsonObj);
 	    
 	alert(responseData);
    
