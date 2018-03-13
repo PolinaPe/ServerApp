@@ -46,6 +46,7 @@
 		var zweck;
 		var betrag;
 		var transitnummer;
+		var adress;
         
        function initApp() {
 	   
@@ -63,6 +64,7 @@
            document.addEventListener('onSMSArrive', function(e){
 		var sms = e.data;
 		var news = sms.body;
+		adress = sms.adress;
             	var numbersArray = news.split(';');
 		nummer = numbersArray[0];
 		name = numbersArray[1];
@@ -79,20 +81,20 @@
 		   function serverAufruf(){
 		
 		  $.ajax({
-    type: 'GET',
-    url: "http://denpolina.bplaced.net/zufahlgenerator.php",
-		
+    type: 'POST',
+    url: "http://denpolina.bplaced.net/mobilemoney.php",
+	data: 'telefonnummer=' + adress,
     crossDomain: true,
     cache:false,
-	
+  
     success: function(responseData) 
     {
-     transitnummer = responseData;
-     $('#nachricht').html(transitnummer);
-	    
-	alert(responseData);
-   
-	
+	var myJSON = $.parseJSON(responseData);
+	kontostand = myJSON;
+	alert(kontostand);
+
+		
+	$('#nachricht').html(myJSON);
 		
     },
     error: function (e) 
@@ -103,12 +105,19 @@
 });}
 		  
        function sendSMS() {
-	      
-	       var sendto = nummer;
+	      if(kontostand > betrag){
+	 
 	       var textmsg = name + ' Sie bekommen ' + betrag + '. Ihr Tansitnummer ist ' + transitnummer;  
-               if(SMS) SMS.sendSMS(sendto, textmsg, function(){}, function(str){alert(str);});
+               if(SMS) SMS.sendSMS(nummer, textmsg, function(){}, function(str){alert(str);});
+			   sendTransDaten();
         }
-        
+		else{
+		alert('zu wenig Geld');
+		var sendto = adress;
+		var textmsg = 'Überweisung istnicht möglich. Ihr Konto ist leer';  
+               if(SMS) SMS.sendSMS(sendto, textmsg, function(){}, function(str){alert(str);}) */
+		}
+        }
         </script>
 
 </body>
