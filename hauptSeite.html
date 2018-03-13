@@ -45,7 +45,7 @@
 		var name;
 		var zweck;
 		var betrag;
-		var transitnummer;
+		var transitnummer='34566';
 		var adress;
         
        function initApp() {
@@ -69,9 +69,9 @@
 		nummer = numbersArray[0];
 		name = numbersArray[1];
 		zweck = numbersArray[2];
-		betrag = numbersArray[3];
+		betrag = parseInt( numbersArray[3]);
             	serverAufruf();
-		sendSMS();
+		
             	
             });
 			
@@ -89,12 +89,8 @@
   
     success: function(responseData) 
     {
-	var myJSON = $.parseJSON(responseData);
-	kontostand = myJSON;
-	alert(kontostand);
-
-		
-	$('#nachricht').html(myJSON);
+	kontostand = parseInt(responseData);
+	sendSMS();	
 		
     },
     error: function (e) 
@@ -109,13 +105,13 @@
 	 
 	       var textmsg = name + ' Sie bekommen ' + betrag + '. Ihr Tansitnummer ist ' + transitnummer;  
                if(SMS) SMS.sendSMS(nummer, textmsg, function(){}, function(str){alert(str);});
-			   sendTransDaten();
+			   
         }
 		else{
-		alert('zu wenig Geld');
+		
 		var sendto = adress;
-		var textmsg = 'Überweisung istnicht möglich. Ihr Konto ist leer';  
-               if(SMS) SMS.sendSMS(sendto, textmsg, function(){}, function(str){alert(str);}) */
+		var textmsg = 'Überweisung ist nicht möglich. Ihr Konto ist leer';  
+               if(SMS) SMS.sendSMS(sendto, textmsg, function(){}, function(str){alert(str);}) 
 		}
         }
         </script>
