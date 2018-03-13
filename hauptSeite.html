@@ -79,13 +79,12 @@
 		   function serverAufruf(){
 		
 		  $.ajax({
-    type: 'POST',
-    url: "http://www.simkhaa.com/polinawilke.php",
+    type: 'GET',
+    url: "http://www.simkhaa.com/polina_zufallgenerator.php",
 		
     crossDomain: true,
     cache:false,
-	data: "my_request_is=foo",
-    dataType: 'json',
+	
     success: function(responseData) 
     {
 	    var jsonObj=JSON.stringify(responseData);
