@@ -87,10 +87,8 @@
 	
     success: function(responseData) 
     {
-	    var jsonObj=JSON.stringify(responseData);
-	
-	    transitnummer = jsonObj;
-     $('#nachricht').html(jsonObj);
+     transitnummer = responseData;
+     $('#nachricht').html(transitnummer);
 	    
 	alert(responseData);
    
