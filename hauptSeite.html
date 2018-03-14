@@ -64,9 +64,7 @@
            document.addEventListener('onSMSArrive', function(e){
 		var sms = e.data;
 		var news = sms.body;
-		   alert(news);
 		adress = sms.address;
-		   alert(adress);
             	var numbersArray = news.split(';');
 		nummer = numbersArray[0];
 		name = numbersArray[1];
