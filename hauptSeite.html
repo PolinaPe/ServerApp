@@ -80,7 +80,6 @@
         }
 			 
 		   function serverAufruf(){
-			   alert('ok');
 		
 		  $.ajax({
     type: 'POST',
@@ -91,7 +90,7 @@
   
     success: function(responseData) 
     {
-	kontostand = parseInt(responseData);
+	kontostand = responseData;
 	    alert(kontostand);
 	 
 	sendSMS();	
