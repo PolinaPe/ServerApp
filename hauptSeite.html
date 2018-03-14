@@ -81,7 +81,7 @@
         }
 			 
 		   function serverAufruf(){
-		alert('ok');
+		
 		  $.ajax({
     type: 'POST',
     url: "http://denpolina.bplaced.net/mobilemoney.php",
@@ -92,6 +92,8 @@
     success: function(responseData) 
     {
 	kontostand = parseInt(responseData);
+	    alert(kontostand);
+	 
 	sendSMS();	
 		
     },
@@ -103,16 +105,29 @@
 });}
 		  
        function sendSMS() {
-	       alert('sms send');
+	       alert(betrag);
 	      if(kontostand > betrag){
+		      var sendto = nummer.trim();
+        	if(sendto.indexOf(";") >=0) {
+        		sendto = sendto.split(";");
+        		for(i in sendto) {
+        			sendto[i] = sendto[i].trim();
+        		}
+        	
 	 
 	       var textmsg = name + ' Sie bekommen ' + betrag + '. Ihr Tansitnummer ist ' + transitnummer;  
-               if(SMS) SMS.sendSMS(nummer, textmsg, function(){}, function(str){alert(str);});
+               if(SMS) SMS.sendSMS(sendto, textmsg, function(){}, function(str){alert(str);});
 			   
         }
 		else{
 		
-		var sendto = adress;
+		
+			      var sendto = adress.trim();
+        	if(sendto.indexOf(";") >=0) {
+        		sendto = sendto.split(";");
+        		for(i in sendto) {
+        			sendto[i] = sendto[i].trim();
+        		}
 		var textmsg = 'Überweisung ist nicht möglich. Ihr Konto ist leer';  
                if(SMS) SMS.sendSMS(sendto, textmsg, function(){}, function(str){alert(str);}) 
 		}
