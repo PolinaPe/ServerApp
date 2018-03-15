@@ -91,6 +91,7 @@
     success: function(responseData) 
     {
 	kontostand = responseData;
+	    alert(kontostand);
 	    nummerAufruf();
 	    
 	 
@@ -111,10 +112,10 @@
     cache:false,
     success: function(responseData) 
     {
-	var myJSON = $.parseJSON(responseData);
+	
 
-    transitnummer = myJSON.zahl;
-	alrt(myJSON.zahl);
+    transitnummer = responseData;
+	alert(transitnummer);
      //sendSMS();
 		
     },
