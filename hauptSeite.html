@@ -116,7 +116,7 @@
 
     transitnummer = responseData;
 	alert(transitnummer);
-     //sendSMS();
+     sendSMS();
 		
     },
     error: function (e) 
@@ -128,7 +128,9 @@
 		  
        function sendSMS() {
 	       alert(betrag);
-	      if(kontostand > betrag){
+	      var balance = parseInt(kontostand);
+	      var geld = parseInt(betrag);
+	      if(balance > geld){
 		      var sendto = nummer.trim();
         	if(sendto.indexOf(";") >=0) {
         		sendto = sendto.split(";");
