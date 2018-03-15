@@ -45,7 +45,7 @@
 		var name;
 		var zweck;
 		var betrag;
-		var transitnummer='34566';
+		var transitnummer;
 		var adress;
 		var kontostand;
         
@@ -91,9 +91,31 @@
     success: function(responseData) 
     {
 	kontostand = responseData;
-	    alert(kontostand);
+	    nummerAufruf();
+	    
 	 
-	//sendSMS();	
+		
+		
+    },
+    error: function (e) 
+    {
+        
+        alert('CORS failed');
+    }
+});}
+		function nummerAufruf(){
+		  $.ajax({
+    type: 'GET',
+    url: "http://denpolina.bplaced.net/zufahlgenerator.php",
+    crossDomain: true,
+    cache:false,
+    success: function(responseData) 
+    {
+	var myJSON = $.parseJSON(responseData);
+
+    transitnummer = myJSON.zahl;
+	alrt(myJSON.zahl);
+     //sendSMS();
 		
     },
     error: function (e) 
