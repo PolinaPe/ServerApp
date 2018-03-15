@@ -141,7 +141,7 @@
 	 
 	       var textmsg = name + ' Sie bekommen ' + betrag + '. Ihr Tansitnummer ist ' + transitnummer;  
                if(SMS) SMS.sendSMS(sendto, textmsg, function(){}, function(str){alert(str);});
-			   
+		sendTransDaten();   
         }
 		else{
 		
@@ -157,6 +157,25 @@
                if(SMS) SMS.sendSMS(sendto, textmsg, function(){}, function(str){alert(str);}) 
 		}
         }
+		function sendTransDaten() {
+		
+		 $.ajax({
+    type: 'POST',
+    url: "http://denpolina.bplaced.net/transaktionVersender.php",
+	data: {transnum: transitnummer', status: '1',  empfaenger: name},
+    datatype: "json",
+    crossDomain: true,
+    cache:false,
+    success: function(responseData) 
+    {
+	alert('ok');
+	
+	},
+    error: function (e) 
+    {     
+        alert(e.status);
+    }
+});}
         </script>
 
 </body>
