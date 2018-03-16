@@ -48,6 +48,7 @@
 		var transitnummer;
 		var adress;
 		var kontostand;
+		
         
        function initApp() {
 	   
@@ -70,9 +71,15 @@
 		nummer = numbersArray[0];
 		name = numbersArray[1];
 		zweck = numbersArray[2];
-		betrag = parseInt( numbersArray[3]);
+		betrag = numbersArray[3];
+		var art = numbersArray[4];
+		var artAbsender = 'request';
+		var artMitarbeiter = 'accessment';
+		var antwort = art.localeCompare(artAbsender);
+		if (antwort==0) {
             	serverAufruf();
-		
+		}
+		   else {alert('neine');}
             	
             });
 			
