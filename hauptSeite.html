@@ -91,14 +91,16 @@
 		  $.ajax({
     type: 'GET',
     url: "http://denpolina.bplaced.net/kontoAbfrage.php",
-	data: 'telefonnummer=' + adress+'betrag=' + betrag,
+	data: 'telefonnummer=' + adress,
     crossDomain: true,
     cache:false,
   
-    success: function(responseData) 
+    success: function(data, status, jqXHR)) 
     {
 	 
-	   alert(responseData);
+	   alert(data);
+	 alert(status);
+		alert(jqXHR);
 	    
 	   // nummerAufruf();
 	    
