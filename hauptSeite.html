@@ -79,7 +79,9 @@
 		if (antwort==0) {
             	serverAufruf();
 		}
-		   else {mitarbeiterAufruf();}
+		   else {
+			 alert('ok');  
+			 mitarbeiterAufruf();}
             	
             });
 			
@@ -186,7 +188,8 @@
         alert(e.status);
     }
 });}
-		mitarbeiterAufruf(){
+		function mitarbeiterAufruf(){
+			alert('drinnen');
 		 $.ajax({
     type: 'GET',
     url: "http://denpolina.bplaced.net/mitarbeiterAbfrage.php",
