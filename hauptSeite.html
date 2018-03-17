@@ -95,12 +95,11 @@
     crossDomain: true,
     cache:false,
   
-    success: function(data, status, jqXHR) 
+    success: function(data) 
     {
-	 
-	   alert(data);
-	 alert(status);
-		alert(jqXHR);
+	 var json_obj = $.parseJSON(data);
+	   alert(json_obj.kontostand);
+	
 	    
 	   // nummerAufruf();
 	    
