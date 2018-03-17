@@ -90,17 +90,16 @@
 		
 		  $.ajax({
     type: 'GET',
-    url: "http://denpolina.bplaced.net/mobilemoney.php",
+    url: "http://denpolina.bplaced.net/kontoAbfrage.php",
 	data: 'telefonnummer=' + adress+'betrag=' + betrag,
     crossDomain: true,
     cache:false,
   
     success: function(responseData) 
     {
-	//kontostand = responseData;
-	   // $("#nachricht").html(responseData); 
+	 
 	   alert(JSON.stringify(responseData));
-	    alert(responseData.kontostand);
+	    
 	   // nummerAufruf();
 	    
 	 
