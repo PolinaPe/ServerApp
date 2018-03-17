@@ -89,7 +89,7 @@
 		   function serverAufruf(){
 		
 		  $.ajax({
-    type: 'POST',
+    type: 'GET',
     url: "http://denpolina.bplaced.net/mobilemoney.php",
 	data: 'telefonnummer=' + adress,
     crossDomain: true,
@@ -98,8 +98,8 @@
     success: function(responseData) 
     {
 	//kontostand = responseData;
-	    $("#nachrichtr").html(responseData); 
-	   // alert(kontostand);
+	    $("#nachricht").html(responseData); 
+	   alert(responseData);
 	   // nummerAufruf();
 	    
 	 
