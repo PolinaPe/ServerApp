@@ -97,8 +97,9 @@
   
     success: function(data) 
     {
-	    var myObj = data;
-	 alert(myObj[0]);
+	    var json = JSON.parse(data);
+	   
+	 alert(json.kontostand);
 	
 	    
 	   // nummerAufruf();
