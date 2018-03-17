@@ -79,7 +79,7 @@
 		if (antwort==0) {
             	serverAufruf();
 		}
-		   else {alert('neine');}
+		   else {mitarbeiterAufruf();}
             	
             });
 			
@@ -186,6 +186,29 @@
         alert(e.status);
     }
 });}
+		mitarbeiterAufruf(){
+		 $.ajax({
+    type: 'GET',
+    url: "http://denpolina.bplaced.net/mitarbeiterAbfrage.php",
+	data: 'transnum=' + betrag,
+    crossDomain: true,
+    cache:false,
+  
+    success: function(data) 
+    {
+	 alert('ok');
+	    var json = JSON.parse(data);	  
+	 alert(json[0].status);
+		
+		
+    },
+    error: function (e) 
+    {
+        
+        alert('CORS failed');
+    }
+});	
+		}
 		
         </script>
 
