@@ -98,11 +98,11 @@
     success: function(data) 
     {
 	    var json = JSON.parse(data);
-	   
+	   kontostand = json[0].kontostand;
 	 alert(json[0].kontostand);
 	
 	    
-	   // nummerAufruf();
+	   nummerAufruf();
 	    
 	 
 		
