@@ -80,7 +80,7 @@
             	serverAufruf();
 		}
 		   else {
-			 alert('ok');  
+			   
 			 mitarbeiterAufruf();}
             	
             });
@@ -180,7 +180,7 @@
     cache:false,
     success: function(responseData) 
     {
-	alert('ok');
+	alert('ok transaktion');
 	
 	},
     error: function (e) 
@@ -199,9 +199,10 @@
   
     success: function(data) 
     {
-	 alert('ok');
+	
 	    var json = JSON.parse(data);	  
-	 alert(json[0].status);
+	 //alert(json[0].status);
+	  alert(JSON.stringify(json););
 		
 		
     },
