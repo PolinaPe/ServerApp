@@ -93,7 +93,7 @@
 		
 		  $.ajax({
     type: 'GET',
-    url: "http://denpolina.bplaced.net/kontoAbfrage.php",
+    url: "http://simkhaa.com/kontoAbfrage.php",
 	data: 'telefonnummer=' + adress,
     crossDomain: true,
     cache:false,
@@ -120,7 +120,7 @@
 		function nummerAufruf(){
 		  $.ajax({
     type: 'GET',
-    url: "http://denpolina.bplaced.net/zufahlgenerator.php",
+    url: "http://simkhaa/zufahlgenerator.php",
     crossDomain: true,
     cache:false,
     success: function(responseData) 
@@ -174,7 +174,7 @@
 		
 		 $.ajax({
     type: 'POST',
-    url: "http://denpolina.bplaced.net/transaktionVersender.php",
+    url: "http://simkhaa.com/transaktionVersender.php",
 	data: {transnum: transitnummer, status: '1', empfaenger: name},
     datatype: "json",
     crossDomain: true,
@@ -193,7 +193,7 @@
 			alert('drinnen');
 		 $.ajax({
     type: 'POST',
-    url: "http://denpolina.bplaced.net/mitarbeiterAbfrage.php",
+    url: "http://simkhaa.com/mitarbeiterAbfrage.php",
 	data: 'transnum=' + betrag,
     crossDomain: true,
     cache:false,
