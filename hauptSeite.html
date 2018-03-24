@@ -201,12 +201,13 @@
     success: function(data) 
     {
 	alert('drinner');
-	  trNummer = data[0].trNummer;	  
-	  status = data[0].status;
-	  empfaenger = data[0].ampfaenger;
-	   var mitteilung= trNummer + "" + status + "" +empfaenger;
-	 alert(mitteilung);
-	//  alert(JSON.stringify(json););
+	 var json = JSON.parse(data);
+	  var trNummer = json[0].trNummer;	  
+	  //status = data[0].status;
+	  //empfaenger = data[0].ampfaenger;
+	  // var mitteilung= trNummer + "" + status + "" +empfaenger;
+	 alert(trNummer);
+	
 		
 		
     },
