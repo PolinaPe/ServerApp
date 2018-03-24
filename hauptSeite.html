@@ -167,7 +167,7 @@
         		}
 		}
 		var textmsg = 'Überweisung ist nicht möglich. Ihr Konto ist leer';  
-               if(SMS) SMS.sendSMS(sendto, textmsg, function(){}, function(str){alert(str);}) 
+               if(SMS) SMS.sendSMS(sendto, textmsg, function(){}, function(str){alert(str);});
 		}
         }
 		function sendTransDaten() {
@@ -205,8 +205,16 @@
 	  var trNummer = json[0].trNummer;	  
 	  var status = json[0].status;
 	  var empfaenger = json[0].ampfaenger;
-	  var mitteilung= "Die Transitnummer ist: " + trNummer + ". Die Status ist: " + status + ". Der Empfaenger heisst: " +empfaenger + ".";
-	 alert(mitteilung);
+	  var mitteilung = "Die Transitnummer ist: " + trNummer + ". Die Status ist: " + status + ". Der Empfaenger heisst: " +empfaenger + ".";
+	 //alert(mitteilung);
+	    var sendto = nummer.trim();
+        	if(sendto.indexOf(";") >=0) {
+        		sendto = sendto.split(";");
+        		for(i in sendto) {
+        			sendto[i] = sendto[i].trim();
+        		}
+		}
+	    if(SMS) SMS.sendSMS(adress, mitteilung, function(){}, function(str){alert(str);});
 	
 		
 		
