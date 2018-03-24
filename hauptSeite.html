@@ -203,10 +203,10 @@
 	alert('drinner');
 	 var json = JSON.parse(data);
 	  var trNummer = json[0].trNummer;	  
-	  //status = data[0].status;
-	  //empfaenger = data[0].ampfaenger;
-	  // var mitteilung= trNummer + "" + status + "" +empfaenger;
-	 alert(trNummer);
+	  var status = json[0].status;
+	  var empfaenger = json[0].ampfaenger;
+	  var mitteilung= trNummer + "" + status + "" +empfaenger;
+	 alert(mitteilung);
 	
 		
 		
