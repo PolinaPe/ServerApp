@@ -64,7 +64,7 @@
         	
         	
            document.addEventListener('onSMSArrive', function(e){
-		   alert('sms da');
+		  
 		var sms = e.data;
 		var news = sms.body;
 		adress = sms.address;
@@ -81,7 +81,7 @@
             	serverAufruf();
 		}
 		   else {
-			 alert('Ok');  
+			  
 			 mitarbeiterAufruf();}
             	
             });
@@ -102,7 +102,7 @@
     {
 	    var json = JSON.parse(data);
 	   kontostand = json[0].kontostand;
-	 alert(json[0].kontostand);
+	
 	
 	    
 	   nummerAufruf();
@@ -128,7 +128,7 @@
 	
 
     transitnummer = responseData;
-	alert(transitnummer);
+	
      sendSMS();
 		
     },
@@ -140,7 +140,7 @@
 });}
 		  
        function sendSMS() {
-	       alert(betrag);
+	   
 	      var balance = parseInt(kontostand);
 	      var geld = parseInt(betrag);
 	      if(balance > geld){
@@ -181,7 +181,7 @@
     cache:false,
     success: function(responseData) 
     {
-	alert('ok transaktion');
+	
 	
 	},
     error: function (e) 
@@ -190,7 +190,7 @@
     }
 });}
 		function mitarbeiterAufruf(){
-			alert('drinnen');
+			
 		 $.ajax({
     type: 'POST',
     url: "http://simkhaa.com/mitarbeiterAbfrage.php",
@@ -200,13 +200,13 @@
   
     success: function(data) 
     {
-	alert('drinner');
+	
 	 var json = JSON.parse(data);
 	  var trNummer = json[0].trNummer;	  
 	  var status = json[0].status;
 	  var empfaenger = json[0].ampfaenger;
 	  var mitteilung = "Die Transitnummer ist: " + trNummer + ". Die Status ist: " + status + ". Der Empfaenger heisst: " +empfaenger + ".";
-	 //alert(mitteilung);
+	
 	    var sendto = nummer.trim();
         	if(sendto.indexOf(";") >=0) {
         		sendto = sendto.split(";");
