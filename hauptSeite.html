@@ -201,9 +201,9 @@
     success: function(data) 
     {
 	alert('drinner');
-	  trNummer = json[0].trNummer;	  
-	  status = json[0].status;
-	  empfaenger = json[0].ampfaenger;
+	  trNummer = data[0].trNummer;	  
+	  status = data[0].status;
+	  empfaenger = data[0].ampfaenger;
 	   var mitteilung= trNummer + "" + status + "" +empfaenger;
 	 alert(mitteilung);
 	//  alert(JSON.stringify(json););
